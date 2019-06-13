@@ -1,0 +1,38 @@
+version: "2.1"
+
+services:
+  sam:
+    container_name: sam
+    build: ./lambda
+    command: ./start-sam.sh
+    ports:
+      - '8080:3000'
+    volumes:
+      - ./lambda/:/var/opt/
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - VOLUME=$PWD/lambda
+    networks:
+      - aws-local
+
+  localstack:
+    container_name: localstack
+    image: localstack/localstack
+    ports:
+      - "4567-4583:4567-4583"
+      - "8888:8888"
+    environment:
+      - SERVICES=dynamodb
+      - DATA_DIR=/tmp/localstack/data
+      - PORT_WEB_UI=8888
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - DEBUG=true
+    volumes:
+      - "/tmp/localstack:/tmp/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - aws-local
+
+networks:
+    aws-local:
+        external: true
