@@ -88,7 +88,10 @@ Other AWS services (ex. *S3*, *SQS*, etc) are also available as long as they are
     ```json
     {
         "table_names": [
-            "cities"
+            "dummy"
         ]
     }
     ```
+## Web user interface (dashboard)
+
+  The port is 8888. Access with your browser to watch localstack resources.

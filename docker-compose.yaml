@@ -28,7 +28,7 @@ services:
       - DOCKER_HOST=unix:///var/run/docker.sock
       - DEBUG=true
     volumes:
-      - "/tmp/localstack:/tmp/localstack"
+      - "$PWD/data:/tmp/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
       - aws-local
