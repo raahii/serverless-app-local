@@ -1,7 +1,6 @@
-Local development environment for aws serverless application
---
+# Local development environment for aws serverless application
 
-This repository contains a json api server using AWS *Lambda Function* and *DynamoDB*. It also contains some lambda functions written in golang, but they are just examples.
+This repository contains a json api server using *AWS Lambda Function* and *DynamoDB*. It also contains some lambda functions written in golang, but they are just examples.
 
 ## About
 
@@ -83,7 +82,7 @@ Other AWS services (ex. *S3*, *SQS*, etc) are also available as long as they are
     Return table names in dynamodb.
 
     ```sh
-    curl localhost:8000/list-tables
+    curl localhost:8000/tables
     ```
 
     ```json

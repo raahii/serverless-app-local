@@ -6,7 +6,7 @@ services:
     build: ./lambda
     command: ./start-sam.sh
     ports:
-      - '8080:3000'
+      - '8000:3000'
     volumes:
       - ./lambda/:/var/opt/
       - /var/run/docker.sock:/var/run/docker.sock

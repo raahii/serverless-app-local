@@ -5,7 +5,7 @@ fmt:
 
 build:
 	cd lambda; GOOS=linux GOARCH=amd64 go build -o hello/main ./hello
-	cd lambda; GOOS=linux GOARCH=amd64 go build -o tables/main ./tables
+	cd lambda; GOOS=linux GOARCH=amd64 go build -o list-tables/main ./list-tables
 
 start: fmt build
 	docker network inspect aws-local &>/dev/null || \
